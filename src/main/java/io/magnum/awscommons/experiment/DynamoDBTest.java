@@ -2,7 +2,7 @@ package io.magnum.awscommons.experiment;
 
 import io.magnum.awscommons.AwsContext;
 
-import com.amazonaws.services.dynamodb.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 
 public class DynamoDBTest {
 
