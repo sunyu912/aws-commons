@@ -3,6 +3,7 @@ package io.magnum.awscommons;
 import io.magnum.awscommons.exec.Exec;
 import io.magnum.awscommons.retry.AbortException;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
 
@@ -183,6 +184,10 @@ public class S3CmdBasedAwsS3Helper extends DefaultAwsS3Helper {
 		log.info("Sync-ing files from S3 to local disk...");
 		if (!key.contains(".") && !key.endsWith("/")) {
 			key = key + "/";
+		}
+		File local = new File(localPath);
+		if (!local.exists()) {
+		    local.mkdirs();
 		}
 		String cmd = S3CMD_SYNC + " s3://" + bucket + "/" + key + " "
 				+ localPath;
